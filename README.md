@@ -42,7 +42,7 @@ composer require soluzione-software/laravel-pwa
 php artisan vendor:publish --tag=pwa-public
 ```
 
-4. Edit `public/vendor/pwa/app.webmanifest`.
+4. Edit `public/app.webmanifest`.
 
 ## Disabling locally
 
