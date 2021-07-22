@@ -29,7 +29,7 @@ composer require soluzione-software/laravel-pwa
 @yield('content')
 
 <!-- Scripts -->
-@include('pwa::scripts')
+@include('pwa::footer')
 
 <!-- other scripts -->
 </body>

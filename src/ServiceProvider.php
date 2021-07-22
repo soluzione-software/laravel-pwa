@@ -28,6 +28,8 @@ class ServiceProvider extends BaseServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'pwa');
 
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'pwa');
+
         $this->bootPublishes();
     }
 
@@ -35,9 +37,7 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this
             ->publishes(
-                [
-                    __DIR__.'/../resources/views' => App::resourcePath('views/vendor/pwa'),
-                ],
+                [__DIR__.'/../resources/views' => App::resourcePath('views/vendor/pwa')],
                 ['pwa', 'views', 'pwa-views']
             );
 
@@ -53,11 +53,16 @@ class ServiceProvider extends BaseServiceProvider
                 ['pwa', 'public', 'pwa-public']
             );
 
-        $this->publishes(
-            [
-                __DIR__.'/../config/pwa.php' => App::configPath('pwa.php'),
-            ],
-            ['pwa', 'config', 'pwa-config']
-        );
+        $this
+            ->publishes(
+                [__DIR__.'/../config/pwa.php' => App::configPath('pwa.php')],
+                ['pwa', 'config', 'pwa-config']
+            );
+
+        $this
+            ->publishes(
+                [__DIR__.'/../resources/lang' => App::resourcePath('lang/vendor/pwa')],
+                ['pwa', 'translations', 'pwa-translations']
+            );
     }
 }
